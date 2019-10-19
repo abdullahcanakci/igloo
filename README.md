@@ -36,3 +36,18 @@ Although having a network connection is great we can't be certain a networked de
 ## 5 - Integration
 
 I can write anything that needed to make this work. But having and IOT device means integration. I have look into some opensource Home automation projects and there are plenty options to select. Tasmota looks promising but should wait and analyze.
+
+
+
+## Hardware
+
+I have a look at some devices to use
+
+- ESP12, Tasmota works which is a plus. On negative side it does not have 3 hardware PWM channels. only 1 8bit one and rest are software based. The problem is with WiFi stack this will create, in my opinion,  problems with color mixing. Need to check. Might use a dedicated pwm controller or slave μC with higher hardware pwm controller
+- IRLML0030TRBF (TR Tape reel, BF ?), is a great little mosfet.
+  - SOT23, so small
+  - V_gth = 2.9V, which is great for most microcontrollers
+  - Rds_on = 40mΩ @ 4.5V up to 4.2 amp continuos current. Which is plenty. Will mean ~50W @ 12V per channel
+  - PD of 0.65W @3.3V gate voltage 4 amp current, which will create a junction temperature of 65°C over ambient.
+  - Not expensive @ 0.42$ per piece.
+- Board will be 2 layers, preferably smaller than 40x60mm.
