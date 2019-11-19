@@ -35,19 +35,30 @@ Although having a network connection is great we can't be certain a networked de
 
 ## 5 - Integration
 
-I can write anything that needed to make this work. But having and IOT device means integration. I have look into some opensource Home automation projects and there are plenty options to select. Tasmota looks promising but should wait and analyze.
+I though about a bit about how can I implement multi device, controller etc in a system only composed of ESP12. It is not actually hard, but I didn't like the complexity of doing it all in C++, with some half-baked http library.
 
+Thinking about Raspberry Pi Mini, an idea occurred, lets make a rPi a host, that applicable devices can connect, this way, I only need to create a web server to handle "User Interaction" on rPi, and it will pass down relevant data to controllers. This way I don't have to implement so much in ESP12's constraints. This has significant positives:
 
+- Only need to create one web app to handle multi devices.
+- Ease of adding and removing devices to system
+  - Old way, I have to add a device to a network and set it up, and use it alone. This way, a newly added device can search the network for a compliant device and set up a connection and set the device up. After we can manage the controller device with the unified webapp.
+- Ease of extensibility. 
+  - Host system can be updated to handle more types of devices.
+  - Host can be changed with a compliant system.
+  - Host can implement third party home automation systems.
+- Can update controller systems through air? Should be possible, have seen it, need to check how to implement it.
 
 ## Hardware
 
 I have a look at some devices to use
 
-- ESP12, Tasmota works which is a plus. On negative side it does not have 3 hardware PWM channels. only 1 8bit one and rest are software based. The problem is with WiFi stack this will create, in my opinion,  problems with color mixing. Need to check. Might use a dedicated pwm controller or slave μC with higher hardware pwm controller
+- Raspberry Pi mini as host device. May create a hat for it to act as also, but not really sure about it.
+
+- ESP12, is a good choice for sole pwm controlling job. It can do 200Hz refresh rate with 5ms downtime with software pwm. For hardware pwm, it has limited(2?) channels and not enough PWM counters to handle 3 different pwm channels.
 - IRLML0030TRBF (TR Tape reel, BF ?), is a great little mosfet.
   - SOT23, so small
   - V_gth = 2.9V, which is great for most microcontrollers
-  - Rds_on = 40mΩ @ 4.5V up to 4.2 amp continuos current. Which is plenty. Will mean ~50W @ 12V per channel
+  - Rds_on = 40mΩ @ 4.5V up to 4.2 amp continuos current. Which is plenty. Will mean ~50W @ 12V per channel. Prolly should limit it about 30W for 10 meter of 3W/m strip per channel.
   - PD of 0.65W @3.3V gate voltage 4 amp current, which will create a junction temperature of 65°C over ambient.
   - Not expensive @ 0.42$ per piece.
 - Board will be 2 layers, preferably smaller than 40x60mm.
