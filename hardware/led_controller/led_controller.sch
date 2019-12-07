@@ -74,29 +74,27 @@ $EndComp
 $Comp
 L power:+12V #PWR010
 U 1 1 5DED5D2A
-P 9700 4300
-F 0 "#PWR010" H 9700 4150 50  0001 C CNN
-F 1 "+12V" H 9715 4473 50  0000 C CNN
-F 2 "" H 9700 4300 50  0001 C CNN
-F 3 "" H 9700 4300 50  0001 C CNN
-	1    9700 4300
-	1    0    0    -1  
+P 9700 4700
+F 0 "#PWR010" H 9700 4550 50  0001 C CNN
+F 1 "+12V" H 9715 4873 50  0000 C CNN
+F 2 "" H 9700 4700 50  0001 C CNN
+F 3 "" H 9700 4700 50  0001 C CNN
+	1    9700 4700
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	9900 4400 9700 4400
-Wire Wire Line
-	9700 4400 9700 4300
 Wire Wire Line
 	9900 4500 9700 4500
 Wire Wire Line
 	9900 4600 9700 4600
 Wire Wire Line
 	9900 4700 9700 4700
-Text Label 9700 4500 2    50   ~ 0
+Text Label 9700 4400 2    50   ~ 0
 DRAIN_RED
-Text Label 9700 4600 2    50   ~ 0
+Text Label 9700 4500 2    50   ~ 0
 DRAIN_GREEN
-Text Label 9700 4700 2    50   ~ 0
+Text Label 9700 4600 2    50   ~ 0
 DRAIN_BLUE
 $Comp
 L Connector_Generic:Conn_01x04 J3
@@ -112,29 +110,27 @@ $EndComp
 $Comp
 L power:+12V #PWR09
 U 1 1 5DED755F
-P 9700 3400
-F 0 "#PWR09" H 9700 3250 50  0001 C CNN
-F 1 "+12V" H 9715 3573 50  0000 C CNN
-F 2 "" H 9700 3400 50  0001 C CNN
-F 3 "" H 9700 3400 50  0001 C CNN
-	1    9700 3400
-	1    0    0    -1  
+P 9700 3850
+F 0 "#PWR09" H 9700 3700 50  0001 C CNN
+F 1 "+12V" H 9715 4023 50  0000 C CNN
+F 2 "" H 9700 3850 50  0001 C CNN
+F 3 "" H 9700 3850 50  0001 C CNN
+	1    9700 3850
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	9900 3550 9700 3550
-Wire Wire Line
-	9700 3550 9700 3400
 Wire Wire Line
 	9900 3650 9700 3650
 Wire Wire Line
 	9700 3750 9900 3750
 Wire Wire Line
 	9900 3850 9700 3850
-Text Label 9700 3650 2    50   ~ 0
+Text Label 9700 3550 2    50   ~ 0
 DRAIN_RED
-Text Label 9700 3750 2    50   ~ 0
+Text Label 9700 3650 2    50   ~ 0
 DRAIN_GREEN
-Text Label 9700 3850 2    50   ~ 0
+Text Label 9700 3750 2    50   ~ 0
 DRAIN_BLUE
 $Comp
 L Connector_Generic:Conn_01x06 J2
@@ -381,8 +377,6 @@ $EndComp
 Wire Wire Line
 	7500 1800 7500 1600
 Wire Wire Line
-	7300 1500 7250 1500
-Wire Wire Line
 	6950 1500 6950 1250
 Wire Wire Line
 	7500 1200 7500 1050
@@ -415,41 +409,21 @@ Wire Wire Line
 Connection ~ 6950 1500
 Wire Wire Line
 	6950 1900 6950 1800
-$Comp
-L Diode:1N4148W D1
-U 1 1 5DEF6A71
-P 6650 1500
-F 0 "D1" H 6650 1717 50  0000 C CNN
-F 1 "1N4148W" H 6650 1626 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123" H 6650 1325 50  0001 C CNN
-F 3 "https://www.vishay.com/docs/85748/1n4148w.pdf" H 6650 1500 50  0001 C CNN
-	1    6650 1500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6950 1500 6800 1500
-Wire Wire Line
-	6500 1500 6350 1500
-Wire Wire Line
-	6350 1500 6350 1050
 Wire Wire Line
 	6350 1050 6650 1050
-Connection ~ 6350 1500
 $Comp
 L Device:R_Small R1
 U 1 1 5DEFA2D9
-P 6050 1500
-F 0 "R1" V 5854 1500 50  0000 C CNN
-F 1 "1K" V 5945 1500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6050 1500 50  0001 C CNN
-F 3 "~" H 6050 1500 50  0001 C CNN
-	1    6050 1500
+P 6250 1050
+F 0 "R1" V 6054 1050 50  0000 C CNN
+F 1 "1K" V 6145 1050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6250 1050 50  0001 C CNN
+F 3 "~" H 6250 1050 50  0001 C CNN
+	1    6250 1050
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6150 1500 6350 1500
-Wire Wire Line
-	5950 1500 5850 1500
+	6150 1050 6050 1050
 $Comp
 L Transistor_BJT:BC807 Q3
 U 1 1 5DF0152C
@@ -504,8 +478,6 @@ $EndComp
 Wire Wire Line
 	7500 3450 7500 3250
 Wire Wire Line
-	7300 3150 7250 3150
-Wire Wire Line
 	6950 3150 6950 2900
 Wire Wire Line
 	7500 2850 7500 2700
@@ -538,41 +510,19 @@ Wire Wire Line
 Connection ~ 6950 3150
 Wire Wire Line
 	6950 3550 6950 3450
-$Comp
-L Diode:1N4148W D2
-U 1 1 5DF0155E
-P 6650 3150
-F 0 "D2" H 6650 3367 50  0000 C CNN
-F 1 "1N4148W" H 6650 3276 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123" H 6650 2975 50  0001 C CNN
-F 3 "https://www.vishay.com/docs/85748/1n4148w.pdf" H 6650 3150 50  0001 C CNN
-	1    6650 3150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6950 3150 6800 3150
-Wire Wire Line
-	6500 3150 6350 3150
-Wire Wire Line
-	6350 3150 6350 2700
 Wire Wire Line
 	6350 2700 6650 2700
-Connection ~ 6350 3150
 $Comp
 L Device:R_Small R3
 U 1 1 5DF01569
-P 6050 3150
-F 0 "R3" V 5854 3150 50  0000 C CNN
-F 1 "1K" V 5945 3150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6050 3150 50  0001 C CNN
-F 3 "~" H 6050 3150 50  0001 C CNN
-	1    6050 3150
+P 6250 2700
+F 0 "R3" V 6054 2700 50  0000 C CNN
+F 1 "1K" V 6145 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6250 2700 50  0001 C CNN
+F 3 "~" H 6250 2700 50  0001 C CNN
+	1    6250 2700
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6150 3150 6350 3150
-Wire Wire Line
-	5950 3150 5900 3150
 $Comp
 L Transistor_BJT:BC807 Q5
 U 1 1 5DF0538F
@@ -627,8 +577,6 @@ $EndComp
 Wire Wire Line
 	7500 5200 7500 5000
 Wire Wire Line
-	7300 4900 7200 4900
-Wire Wire Line
 	6950 4900 6950 4650
 Wire Wire Line
 	7500 4600 7500 4450
@@ -662,51 +610,29 @@ Connection ~ 6950 4900
 Wire Wire Line
 	6950 5300 6950 5200
 $Comp
-L Diode:1N4148W D3
-U 1 1 5DF053C1
-P 6650 4900
-F 0 "D3" H 6650 5117 50  0000 C CNN
-F 1 "1N4148W" H 6650 5026 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123" H 6650 4725 50  0001 C CNN
-F 3 "https://www.vishay.com/docs/85748/1n4148w.pdf" H 6650 4900 50  0001 C CNN
-	1    6650 4900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6950 4900 6800 4900
-Wire Wire Line
-	6500 4900 6350 4900
-Wire Wire Line
-	6350 4900 6350 4450
-Wire Wire Line
-	6350 4450 6650 4450
-Connection ~ 6350 4900
-$Comp
 L Device:R_Small R5
 U 1 1 5DF053CC
-P 6050 4900
-F 0 "R5" V 5854 4900 50  0000 C CNN
-F 1 "1K" V 5945 4900 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6050 4900 50  0001 C CNN
-F 3 "~" H 6050 4900 50  0001 C CNN
-	1    6050 4900
+P 6350 4450
+F 0 "R5" V 6154 4450 50  0000 C CNN
+F 1 "1K" V 6245 4450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6350 4450 50  0001 C CNN
+F 3 "~" H 6350 4450 50  0001 C CNN
+	1    6350 4450
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6150 4900 6350 4900
-Wire Wire Line
-	5950 4900 5850 4900
+	6250 4450 6200 4450
 Text Label 7750 1050 0    50   ~ 0
 DRAIN_RED
 Text Label 7750 2700 0    50   ~ 0
 DRAIN_GREEN
 Text Label 7750 4450 0    50   ~ 0
 DRAIN_BLUE
-Text Label 5850 1500 2    50   ~ 0
+Text Label 6050 1050 2    50   ~ 0
 SIG_RED
-Text Label 5850 3150 2    50   ~ 0
+Text Label 6050 2700 2    50   ~ 0
 SIG_GREEN
-Text Label 5850 4900 2    50   ~ 0
+Text Label 6200 4450 2    50   ~ 0
 SIG_BLUE
 $Comp
 L RF_Module:ESP-12E U2
@@ -1031,75 +957,6 @@ F 3 "~" H 1050 7150 50  0001 C CNN
 	1    1050 7150
 	1    0    0    -1  
 $EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP1
-U 1 1 5DF95CB7
-P 6300 2200
-F 0 "JP1" H 6300 2405 50  0000 C CNN
-F 1 "Red" H 6300 2314 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 6300 2200 50  0001 C CNN
-F 3 "~" H 6300 2200 50  0001 C CNN
-	1    6300 2200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6150 2200 5850 2200
-Wire Wire Line
-	5850 2200 5850 1500
-Wire Wire Line
-	7250 1500 7250 2200
-Wire Wire Line
-	7250 2200 6450 2200
-Connection ~ 7250 1500
-Wire Wire Line
-	7250 1500 6950 1500
-$Comp
-L Jumper:SolderJumper_2_Open JP2
-U 1 1 5DFA0EDD
-P 6350 3800
-F 0 "JP2" H 6350 4005 50  0000 C CNN
-F 1 "Green" H 6350 3914 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 6350 3800 50  0001 C CNN
-F 3 "~" H 6350 3800 50  0001 C CNN
-	1    6350 3800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7250 3150 7250 3800
-Wire Wire Line
-	7250 3800 6500 3800
-Connection ~ 7250 3150
-Wire Wire Line
-	7250 3150 6950 3150
-Wire Wire Line
-	5900 3150 5900 3800
-Wire Wire Line
-	5900 3800 6200 3800
-Connection ~ 5900 3150
-Wire Wire Line
-	5900 3150 5850 3150
-$Comp
-L Jumper:SolderJumper_2_Open JP3
-U 1 1 5DFAA680
-P 6450 5650
-F 0 "JP3" H 6450 5855 50  0000 C CNN
-F 1 "Blue" H 6450 5764 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 6450 5650 50  0001 C CNN
-F 3 "~" H 6450 5650 50  0001 C CNN
-	1    6450 5650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7200 4900 7200 5650
-Wire Wire Line
-	7200 5650 6600 5650
-Connection ~ 7200 4900
-Wire Wire Line
-	7200 4900 6950 4900
-Wire Wire Line
-	6300 5650 5850 5650
-Wire Wire Line
-	5850 5650 5850 4900
 Text Label 1700 1350 0    50   ~ 0
 BTN_RST
 Text Label 1700 1450 0    50   ~ 0
@@ -1110,4 +967,51 @@ Text Label 3150 2400 0    50   ~ 0
 SIG_GREEN
 Text Label 3150 2200 0    50   ~ 0
 SIG_BLUE
+Wire Wire Line
+	6950 4900 7300 4900
+Wire Wire Line
+	6450 4450 6650 4450
+Wire Wire Line
+	6050 2700 6150 2700
+Wire Wire Line
+	6950 3150 7300 3150
+Wire Wire Line
+	6950 1500 7300 1500
+$Comp
+L Device:R_Small R12
+U 1 1 5DFA3EE6
+P 9200 5600
+F 0 "R12" H 9259 5646 50  0000 L CNN
+F 1 "100K" H 9259 5555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9200 5600 50  0001 C CNN
+F 3 "~" H 9200 5600 50  0001 C CNN
+	1    9200 5600
+	1    0    0    1   
+$EndComp
+$Comp
+L power:+12V #PWR0107
+U 1 1 5DFA4300
+P 9200 5400
+F 0 "#PWR0107" H 9200 5250 50  0001 C CNN
+F 1 "+12V" H 9215 5573 50  0000 C CNN
+F 2 "" H 9200 5400 50  0001 C CNN
+F 3 "" H 9200 5400 50  0001 C CNN
+	1    9200 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 5500 9200 5400
+$Comp
+L power:GND #PWR0108
+U 1 1 5DFA9DC4
+P 9200 5850
+F 0 "#PWR0108" H 9200 5600 50  0001 C CNN
+F 1 "GND" H 9205 5677 50  0000 C CNN
+F 2 "" H 9200 5850 50  0001 C CNN
+F 3 "" H 9200 5850 50  0001 C CNN
+	1    9200 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 5850 9200 5700
 $EndSCHEMATC
