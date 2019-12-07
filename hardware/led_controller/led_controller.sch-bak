@@ -1106,8 +1106,4 @@ Text Label 1700 1450 0    50   ~ 0
 FL_RST
 Text Label 3150 2000 0    50   ~ 0
 SIG_RED
-Text Label 3150 2400 0    50   ~ 0
-SIG_GREEN
-Text Label 3150 2200 0    50   ~ 0
-SIG_BLUE
 $EndSCHEMATC
