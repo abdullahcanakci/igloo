@@ -62,3 +62,25 @@ I have a look at some devices to use
   - PD of 0.65W @3.3V gate voltage 4 amp current, which will create a junction temperature of 65°C over ambient.
   - Not expensive @ 0.42$ per piece.
 - Board will be 2 layers, preferably smaller than 40x60mm.
+
+
+
+### Hardware Design
+
+---
+
+I have finally finished the hardware for led controller. It took some time, but I'm happy with the final product. While I was on the drawing board, I considered driving mosfets with pins from ESP12, which would work fine. But the specifications of the mosfet only provides values down to 4.5V which is 33mΩ. At 3.3V I was not in a safe spot to use the mosfet to it's limits. So I constructed a front end for every channel which consists of 1 PNP and 1 NPN transistor and few resistors. This enabled me to raise gate voltage of the mosfet to ~10.8V which Rds<sub>on</sub> = 22mΩ. Reduces resistance will achieve better thermals duty cycle is close to %100. Also by using transistors, mosfet gate charge time will be shorter which means mosfet will spend less time on the high resistance zones which also will help me to achieve better thermals. Cost for the extra transistors is negligible. They cost about 0.10$ to 0.15$ per 20 to 25 piece.
+
+Final board size ended up at 50mm by 55mm which is great. While designing the board 40x60 was a bit optimistic but in the end it is only off by %15.
+
+There is few things I will change before fabrication. Connectors are generic ones, silkscreens are off and I want them to have more information on them. Will change them with similar ones.
+
+Power dissipation is fine at 10.8V gate voltage, 5.2A current. Resistive losses are @ 0.89W which will raise temperature to 90°C over ambient. Switching losses should be fine. By using transistors I reduced time to charge the gate capacitor. Also ESP12 will most likely run the PWM @ 1KHz which is pretty low, in this situation resistive losses will be the driving force. 
+
+I used [this](https://www.electronicdesign.com/boards/calculate-dissipation-mosfets-high-power-supplies) website to help me with power dissipation.
+
+
+
+<img src="hardware/led_controller/led_controller_front.png" alt="Front" style="zoom:75%;" />
+
+<img src="hardware/led_controller/led_controller_back.png" alt="Back" style="zoom:75%;" />
