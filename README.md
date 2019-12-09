@@ -73,8 +73,6 @@ I have finally finished the hardware for led controller. It took some time, but 
 
 Final board size ended up at 50mm by 55mm which is great. While designing the board 40x60 was a bit optimistic but in the end it is only off by %15.
 
-There is few things I will change before fabrication. Connectors are generic ones, silkscreens are off and I want them to have more information on them. Will change them with similar ones.
-
 Power dissipation is fine at 10.8V gate voltage, 5.2A current. Resistive losses are @ 0.89W which will raise temperature to 90°C over ambient. Switching losses should be fine. By using transistors I reduced time to charge the gate capacitor. Also ESP12 will most likely run the PWM @ 1KHz which is pretty low, in this situation resistive losses will be the driving force. 
 
 I used [this](https://www.electronicdesign.com/boards/calculate-dissipation-mosfets-high-power-supplies) website to help me with power dissipation.

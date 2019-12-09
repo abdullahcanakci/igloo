@@ -66,7 +66,7 @@ U 1 1 5DED5704
 P 10100 4500
 F 0 "J4" H 10180 4492 50  0000 L CNN
 F 1 "Screw_Terminal_01x04" H 10180 4401 50  0000 L CNN
-F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00047_1x04_P5.00mm_Horizontal" H 10100 4500 50  0001 C CNN
+F 2 "led_controller:connector_led" H 10100 4500 50  0001 C CNN
 F 3 "~" H 10100 4500 50  0001 C CNN
 	1    10100 4500
 	1    0    0    -1  
@@ -97,61 +97,14 @@ DRAIN_GREEN
 Text Label 9700 4600 2    50   ~ 0
 DRAIN_BLUE
 $Comp
-L Connector_Generic:Conn_01x04 J3
-U 1 1 5DED68AF
-P 10100 3650
-F 0 "J3" H 10180 3642 50  0000 L CNN
-F 1 "Conn_01x04" H 10180 3551 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 10100 3650 50  0001 C CNN
-F 3 "~" H 10100 3650 50  0001 C CNN
-	1    10100 3650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+12V #PWR09
-U 1 1 5DED755F
-P 9700 3850
-F 0 "#PWR09" H 9700 3700 50  0001 C CNN
-F 1 "+12V" H 9715 4023 50  0000 C CNN
-F 2 "" H 9700 3850 50  0001 C CNN
-F 3 "" H 9700 3850 50  0001 C CNN
-	1    9700 3850
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9900 3550 9700 3550
-Wire Wire Line
-	9900 3650 9700 3650
-Wire Wire Line
-	9700 3750 9900 3750
-Wire Wire Line
-	9900 3850 9700 3850
-Text Label 9700 3550 2    50   ~ 0
-DRAIN_RED
-Text Label 9700 3650 2    50   ~ 0
-DRAIN_GREEN
-Text Label 9700 3750 2    50   ~ 0
-DRAIN_BLUE
-$Comp
 L Connector_Generic:Conn_01x06 J2
 U 1 1 5DED9194
 P 10100 2500
 F 0 "J2" H 10180 2492 50  0000 L CNN
 F 1 "Conn_01x06" H 10180 2401 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 10100 2500 50  0001 C CNN
+F 2 "led_controller:Header_Programming" H 10100 2500 50  0001 C CNN
 F 3 "~" H 10100 2500 50  0001 C CNN
 	1    10100 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+12V #PWR07
-U 1 1 5DED9DA1
-P 9700 2150
-F 0 "#PWR07" H 9700 2000 50  0001 C CNN
-F 1 "+12V" H 9715 2323 50  0000 C CNN
-F 2 "" H 9700 2150 50  0001 C CNN
-F 3 "" H 9700 2150 50  0001 C CNN
-	1    9700 2150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -174,20 +127,20 @@ Wire Wire Line
 Wire Wire Line
 	9700 2800 9700 2950
 Wire Wire Line
-	9900 2400 9700 2400
+	9900 2400 9800 2400
 Wire Wire Line
-	9900 2500 9700 2500
+	9900 2500 9800 2500
 Wire Wire Line
-	9900 2600 9700 2600
+	9900 2600 9800 2600
 Wire Wire Line
-	9900 2700 9700 2700
-Text Label 9700 2400 2    50   ~ 0
+	9900 2700 9800 2700
+Text Label 9800 2700 2    50   ~ 0
 FL_RST
-Text Label 9700 2500 2    50   ~ 0
+Text Label 9800 2500 2    50   ~ 0
 FL_RX
-Text Label 9700 2600 2    50   ~ 0
+Text Label 9800 2400 2    50   ~ 0
 FL_TX
-Text Label 9700 2700 2    50   ~ 0
+Text Label 9800 2600 2    50   ~ 0
 FL_DTR
 $Comp
 L Switch:SW_Push SW1
@@ -824,17 +777,6 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 1850 4450 50  0001 C C
 	1    1750 4700
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+12V #PWR016
-U 1 1 5DF54C88
-P 1200 4600
-F 0 "#PWR016" H 1200 4450 50  0001 C CNN
-F 1 "+12V" H 1215 4773 50  0000 C CNN
-F 2 "" H 1200 4600 50  0001 C CNN
-F 3 "" H 1200 4600 50  0001 C CNN
-	1    1200 4600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1450 4700 1200 4700
 Wire Wire Line
@@ -1209,4 +1151,70 @@ Wire Wire Line
 Wire Wire Line
 	7250 4900 7650 4900
 Connection ~ 7650 4900
+$Comp
+L Diode:1N4148 D1
+U 1 1 5DF28498
+P 6900 5850
+F 0 "D1" H 6900 5634 50  0000 C CNN
+F 1 "1N4148" H 6900 5725 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 6900 5675 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6900 5850 50  0001 C CNN
+	1    6900 5850
+	1    0    0    1   
+$EndComp
+$Comp
+L power:+12L #PWR0109
+U 1 1 5DF297EC
+P 6600 5750
+F 0 "#PWR0109" H 6600 5600 50  0001 C CNN
+F 1 "+12L" H 6615 5923 50  0000 C CNN
+F 2 "" H 6600 5750 50  0001 C CNN
+F 3 "" H 6600 5750 50  0001 C CNN
+	1    6600 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0110
+U 1 1 5DF2F8C4
+P 7200 5750
+F 0 "#PWR0110" H 7200 5600 50  0001 C CNN
+F 1 "+12V" H 7215 5923 50  0000 C CNN
+F 2 "" H 7200 5750 50  0001 C CNN
+F 3 "" H 7200 5750 50  0001 C CNN
+	1    7200 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 5700 7200 5750
+Wire Wire Line
+	7200 5850 7050 5850
+Wire Wire Line
+	6600 5750 6600 5850
+Wire Wire Line
+	6600 5850 6750 5850
+Connection ~ 7200 5750
+Wire Wire Line
+	7200 5750 7200 5850
+$Comp
+L power:+12L #PWR0111
+U 1 1 5DF42305
+P 1200 4600
+F 0 "#PWR0111" H 1200 4450 50  0001 C CNN
+F 1 "+12L" H 1215 4773 50  0000 C CNN
+F 2 "" H 1200 4600 50  0001 C CNN
+F 3 "" H 1200 4600 50  0001 C CNN
+	1    1200 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12L #PWR0112
+U 1 1 5DF449D2
+P 9700 2150
+F 0 "#PWR0112" H 9700 2000 50  0001 C CNN
+F 1 "+12L" H 9715 2323 50  0000 C CNN
+F 2 "" H 9700 2150 50  0001 C CNN
+F 3 "" H 9700 2150 50  0001 C CNN
+	1    9700 2150
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
