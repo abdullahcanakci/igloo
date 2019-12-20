@@ -1,3 +1,6 @@
+[TOC]
+
+
 # Preface
 
 I have one of those led strips with a colorful remote to control it. Most people have them, they are cheap, they are easy to install and most important of all abundant.
@@ -105,3 +108,25 @@ I used [this](https://www.electronicdesign.com/boards/calculate-dissipation-mosf
 <img src="hardware/led_controller_front.png" alt="Front" style="zoom:75%;" />
 
 <img src="hardware/led_controller_back.png" alt="Back" style="zoom:75%;" />
+
+# Software Requirements
+
+2 operation modes. Slave mode and solo mode. 
+
+Selection will be done with the FUNC button on the device. If the button is depressed on the boot sequence it will enter the solo mode, if not slave mode will initiate.
+
+After the device boot FUNC button will have 2 different roles. Short press will toggle the light status. Holding the button will activate network settings. In network mode holding the button will start the WPS process, short pressing it will start a network interface to connect with another device to set it up. In this state the user can define network properties, and device settings. Next boot will use updated settings
+
+Slave mode will be used with host device and only will be controlled through unified interface of host device. Aurora won't connect to the internet in this mode, will pull time information from host device.
+
+Solo mode will need a driver application or mqqt server to handle it.
+
+Requirements:
+
+1. Boot sequence state machine.
+2. Time based interrupts.
+3. Led control routine.
+4. Led control interface.
+5. Led control web interface.
+6. Solo mode web user interface
+7. Slave mode interface
