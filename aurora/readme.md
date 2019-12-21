@@ -1,6 +1,3 @@
-[TOC]
-
-
 # Preface
 
 I have one of those led strips with a colorful remote to control it. Most people have them, they are cheap, they are easy to install and most important of all abundant.
@@ -10,6 +7,8 @@ If I have to find a problem with them, it would be their horrendous controls. Th
 I would like to have a controller with precise color control,  multiple modes to use and somewhat smart so it can act on predefined triggers.
 
 Aim of the Aurora project is to create a led strip controller.
+
+[Workspace Set-up](workspace.md)
 
 ## Requirements
 
