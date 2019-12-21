@@ -43,8 +43,8 @@ nano ~/.profile
 Add these to the bottom. (No need to change $HOME)
 
 ```bash
-export PATH="$PATH:$HOME/bin/esp/xtensa-lx106-elf/bin"
-export IDF_PATH=$HOME/bin/esp/ESP8266_RTOS_SDK
+export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"
+export IDF_PATH=$HOME/esp/ESP8266_RTOS_SDK
 export PATH="$PATH:$HOME/.local/bin"
 ```
 
