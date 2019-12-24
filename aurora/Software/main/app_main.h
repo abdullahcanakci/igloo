@@ -60,7 +60,7 @@ static void system_timer(void *arg);
 static void led_control_task(void *arg);
 static esp_err_t event_handler(void *ctx, system_event_t *event);
 static void start_wps();
-
+static void start_wifi(void);
 
 static uint32_t timer = 0;
 

@@ -28,7 +28,9 @@ void app_main()
 
     xTaskCreate(led_control_task, "led_control", 256, NULL, 10, NULL);
 
-    ESP_ERROR_CHECK(nvs_flash_init());
+    nvs_flash_init(); // Needed for WIFI credentials
+    esp_event_loop_init(event_handler, NULL);
+    start_wifi();
 }
 
 static void debounce(int in_state)
@@ -130,7 +132,7 @@ static void gpio_isr_handler(void *args)
 
 static esp_err_t event_handler(void* ctx, system_event_t* event)
 {
-    const char *TAG = "WPS_EVENT_HANDLER";
+    const char *TAG = "WIFI_EVENT_HANDLER";
     /* For accessing reason codes in case of disconnection */
     system_event_info_t *info = &event->event_info;
     
@@ -153,7 +155,7 @@ static esp_err_t event_handler(void* ctx, system_event_t* event)
                 /*Switch to 802.11 bgn mode */
                 esp_wifi_set_protocol(ESP_IF_WIFI_STA, WIFI_PROTOCAL_11B | WIFI_PROTOCAL_11G | WIFI_PROTOCAL_11N);
             }
-            ESP_ERROR_CHECK(esp_wifi_connect());
+            esp_wifi_connect();
             break;
 
         case SYSTEM_EVENT_STA_WPS_ER_SUCCESS:
@@ -161,23 +163,23 @@ static esp_err_t event_handler(void* ctx, system_event_t* event)
              * so call the function esp_wifi_connect() here
              * */
             ESP_LOGI(TAG, "SYSTEM_EVENT_STA_WPS_ER_SUCCESS");
-            ESP_ERROR_CHECK(esp_wifi_wps_disable());
+            esp_wifi_wps_disable();
             esp_wifi_set_storage(WIFI_STORAGE_FLASH);
-            ESP_ERROR_CHECK(esp_wifi_connect());
+            esp_wifi_connect();
             break;
 
         case SYSTEM_EVENT_STA_WPS_ER_FAILED:
             ESP_LOGI(TAG, "SYSTEM_EVENT_STA_WPS_ER_FAILED");
-            ESP_ERROR_CHECK(esp_wifi_wps_disable());
-            ESP_ERROR_CHECK(esp_wifi_wps_enable(&wps_config));
-            ESP_ERROR_CHECK(esp_wifi_wps_start(0));
+            esp_wifi_wps_disable();
+            esp_wifi_wps_enable(&wps_config);
+            esp_wifi_wps_start(0);
             break;
 
         case SYSTEM_EVENT_STA_WPS_ER_TIMEOUT:
             ESP_LOGI(TAG, "SYSTEM_EVENT_STA_WPS_ER_TIMEOUT");
-            ESP_ERROR_CHECK(esp_wifi_wps_disable());
-            ESP_ERROR_CHECK(esp_wifi_wps_enable(&wps_config));
-            ESP_ERROR_CHECK(esp_wifi_wps_start(0));
+            esp_wifi_wps_disable();
+            esp_wifi_wps_enable(&wps_config);
+            esp_wifi_wps_start(0);
             break;
 
         case SYSTEM_EVENT_STA_WPS_ER_PIN:
@@ -193,18 +195,25 @@ static esp_err_t event_handler(void* ctx, system_event_t* event)
 
 static void start_wps(void){
     esp_wifi_disconnect();
-    tcpip_adapter_init();
-    ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
 
+    tcpip_adapter_init();
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
 
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-    ESP_ERROR_CHECK(esp_wifi_start());
+    esp_wifi_init(&cfg);
+    esp_wifi_set_mode(WIFI_MODE_STA);
+    esp_wifi_start();
 
     ESP_LOGI("WPS", "start wps...");
 
-    ESP_ERROR_CHECK(esp_wifi_wps_enable(&wps_config));
-    ESP_ERROR_CHECK(esp_wifi_wps_start(0));
+    esp_wifi_wps_enable(&wps_config);
+    esp_wifi_wps_start(0);
+}
+
+static void start_wifi(void){
+    tcpip_adapter_init();
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+
+    esp_wifi_init(&cfg);
+    esp_wifi_start();
+    esp_wifi_connect();
 }
