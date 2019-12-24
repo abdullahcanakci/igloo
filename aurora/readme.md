@@ -54,11 +54,11 @@ Outside trigger can be a set time where the device turns on. A loop it can run t
 
 Although having a network connection is great we can't be certain a networking device will be available, this reason if we can integrate IR receiver so it can controllable by remotes would be good.
 
+I have checked [Arduino-IRremote](https://github.com/z3t0/Arduino-IRremote) library to understand how they handle IR signal receiving and conversion. It uses an interrupt with 50 nanosecond interval. I don't think I can afford that with RTOS, network and led switching. I will check if it can be done but it does not looks promising.
+
 ### Integration
 
-I am designing this device to be used within a larger ecosystem. But I want this device to work as standalone too. 
-
-To use as standalone, the device must be booted in standalone mode. To control this mode either a web app or separate application may needed.
+I am designing this device to be used within a larger ecosystem. 
 
 To use within the ecosystem, a host device must be available on the network to connect.
 

@@ -107,7 +107,7 @@ If you encounter any permission errors, enter ```groups``` into terminal and che
 
 After this your device should be flashed and running. You can run ``` make monitor``` and check if it is indeed running. It will show compile information, some system information and a countdown from 10 before restart.
 
-```make monitor``` requires Ctrl+] combo to exit. Unfotunaly I don't have access to that combo without another modifier and it prevents exiting. I modified idf_monitor inside the SDK with another combo but didn't work for some reason. To reflash the device while in the monitor press```Ctrl+T -> Ctrl+R```. It will flash the device and start monitoring it.
+```make monitor``` requires Ctrl+] combo to exit. Unfotunaly I don't have access to that combo without another modifier and it prevents exiting. I modified idf_monitor inside the SDK with another combo but didn't work for some reason. To reflash the device while in the monitor press```Ctrl+T -> Ctrl+F```. It will flash the device and start monitoring it.
 
 
 
